@@ -20,6 +20,23 @@ app.get("/", (req, res) => {
   res.send("Api is running");
 });
 
+// Product routes
+
+const productRoutes = require("./src/routes/productRoutes");
+app.use("/api/products", productRoutes); // Product routes with API
+
+// User routes
+const userRoutes = require("./src/routes/userRoutes");
+app.use("/api/users", userRoutes); // User routes with API
+
+// Cart routes
+const cartRoutes = require("./src/routes/cartRoutes");
+app.use("/api/cart", cartRoutes); // Cart routes with API
+
+// Order routes
+const orderRoutes = require("./src/routes/orderRoutes");
+app.use("/api/orders", orderRoutes); // Order routes with API
+
 // Error handling
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
